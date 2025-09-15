@@ -1,0 +1,19 @@
+<div id="wrapper">
+  <div class="row">
+    <div class="col-lg-6 offset-lg-3">
+      <img id="game-background" src="assets/img/bg.png" draggable="false" class="selectDisable">
+      <app-card-display></app-card-display>
+      <div id="text-container">
+        {{textDisplay}}
+      </div>
+      <div id="balance-container">
+        {{ game.balance | currency:'GBP' }}
+      </div>
+      <app-button (buttonClick)="handleButtonClick()"></app-button>
+    </div>
+  </div>
+
+  <div id="log-container">
+    <app-log-display></app-log-display>
+  </div>
+</div>

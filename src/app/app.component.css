@@ -1,0 +1,47 @@
+#wrapper {
+  width: 1620px;
+}
+#game-background {
+  z-index: 0;
+  position: relative;
+  left: -386px;
+}
+#text-container {
+  position: absolute;
+  top: 280px;
+  left: 54px;
+  width: 400px;
+  height: 34px;
+}
+#log-container {
+  margin-top: 30px;
+}
+#balance-container {
+  position: absolute;
+  left: 90px;
+  top: 400px;
+  height: 60px;
+  width: 120px;
+  font-size: 26pt;
+  font-color: red !important;
+}
+#pay-table-container {
+  position: absolute;
+  border: solid 1px ghostwhite;
+  left: 180px;
+  top: 240px;
+  height: 260px;
+  width: 360px;
+}
+#pay-table {
+  padding-top: 26px;
+  padding-left: 16px;
+  font-size: 16pt;
+}
+#pay-table td {
+  font-size: 13pt;
+}
+#pay-table td:nth-of-type(2) {
+  padding-left: 40px;
+  text-align: right;
+}
