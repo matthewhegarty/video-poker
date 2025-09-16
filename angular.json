@@ -49,18 +49,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "playervis-client:build"
+            "browserTarget": "video-poker:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "playervis-client:build:production"
+              "browserTarget": "video-poker:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "playervis-client:build"
+            "browserTarget": "video-poker:build"
           }
         },
         "test": {
@@ -95,7 +95,7 @@
         }
       }
     },
-    "playervis-client-e2e": {
+    "video-poker-e2e": {
       "root": "",
       "sourceRoot": "",
       "projectType": "application",
@@ -104,7 +104,7 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "./protractor.conf.js",
-            "devServerTarget": "playervis-client:serve"
+            "devServerTarget": "video-poker:serve"
           }
         },
         "lint": {
@@ -121,7 +121,7 @@
       }
     }
   },
-  "defaultProject": "playervis-client",
+  "defaultProject": "video-poker",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "app",
