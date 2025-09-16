@@ -36,13 +36,6 @@ npm start
 ng test
 ```
 
-### TODO
-
-- [Pay higher odds if playing with $5](https://www.gamblingsites.com/online-casino/video-poker/pay-tables/)
-- Right aligned number formatting in balance box
-- Read players from local json file
-- Allow changing stake to lower value if not enough funds
-
 ### Card Images
 
 source: [vector playing cards](https://code.google.com/archive/p/vector-playing-cards/)
