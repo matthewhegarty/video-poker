@@ -2,7 +2,7 @@
 
 This is a simple implementation of a Video Poker game.
 
-![Screenshot](./screenshot.png)
+<img src="./screenshot.png" alt="Screenshot" width="400"/>
 
 ### History
 
