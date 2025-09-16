@@ -2,7 +2,7 @@
 
 This is a simple implementation of a Video Poker game.
 
-![Screenshot](screenshot.png)
+![Screenshot](./screenshot.png)
 
 ### History
 
@@ -12,13 +12,13 @@ I originally wrote it as the winning entry for the Sun Microsystems JavaFX conte
 
 #### 2018
 
-I resurrected the code in 2018 and ported it to Angular2.  The goal was to generate test events for player protection code.
+I resurrected the code in 2018 and ported it to Angular2.  The goal was to generate test events for a player protection application.
 This included logic to modify stakes and send events to a remote server.
 
 #### 2025
 
 I wanted to try my hand at Vibe Coding so this project was an excellent candidate.  That meant trawling through old backups to find the original source code (Angular only - I think the JavaFX script version is long gone).  I used Claude Code to first upgrade it from 2018 and then to remove the server logic.  I was impressed - it did a great job.  It was able to upgrade the code, refactor to simplify and add a comprehensive test suite.  I think this would have taken me around 5 days to do by myself, and it completed in a couple of hours.
-
+code
 ### Requirements
 
 - Node.js v18
@@ -26,6 +26,7 @@ I wanted to try my hand at Vibe Coding so this project was an excellent candidat
 ### Install and run
 
 ```
+npm install
 npm start
 ```
 
