@@ -1,4 +1,4 @@
-import {Component, OnInit, AfterViewInit, ViewChild} from '@angular/core';
+import {Component, OnInit, AfterViewInit, ViewChild, ElementRef} from '@angular/core';
 import {CardDisplayComponent} from './card-display/card-display.component';
 import {LogService} from './log.service';
 import {HandRank} from './poker-hand';
@@ -21,6 +21,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
   @ViewChild(CardDisplayComponent) cardDisplay!: CardDisplayComponent;
   @ViewChild(ButtonComponent) button!: ButtonComponent;
+  @ViewChild('textContainer', { static: false }) textContainer!: ElementRef;
 
   constructor(private logService: LogService) {
   }
@@ -34,6 +35,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     this.game = new Game();
     this.game.balance = this.STARTING_BALANCE;
     this.logService.log(`Game started with £${this.STARTING_BALANCE} balance`);
+    setTimeout(() => this.setDynamicFontSize(this.textDisplay), 0);
   }
 
   ngAfterViewInit(): void {
@@ -45,6 +47,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       // First click - deal cards
       if (!this.game.hasSufficientFunds()) {
         this.textDisplay = 'Game Over - No funds remaining';
+        this.setDynamicFontSize(this.textDisplay);
         this.button.enabled = false;
         return;
       }
@@ -58,6 +61,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       this.cardDisplay.unhighlight();
       this.cardDisplay.cards = this.game.hand;
       this.textDisplay = 'Click on cards to hold, then click button to draw';
+      this.setDynamicFontSize(this.textDisplay);
       this.cardDisplay.active = true;
 
       this.logService.log(`Dealt hand - Stake: £${this.game.stake}`);
@@ -70,6 +74,7 @@ export class AppComponent implements OnInit, AfterViewInit {
 
       const payout = this.game.getPayout(this.game.rank) * this.game.stake;
       this.textDisplay = this.getPayoutDisplay(this.game.rank);
+      this.setDynamicFontSize(this.textDisplay);
 
       if (payout > 0) {
         this.logService.log(`${this.textDisplay} - Won £${payout.toFixed(2)}`);
@@ -87,6 +92,7 @@ export class AppComponent implements OnInit, AfterViewInit {
       } else {
         this.textDisplay = 'Click button to deal';
       }
+      this.setDynamicFontSize(this.textDisplay);
     }
   }
 
@@ -115,5 +121,25 @@ export class AppComponent implements OnInit, AfterViewInit {
       default:
         return 'No win';
     }
+  }
+
+  private setDynamicFontSize(text: string): void {
+    if (!this.textContainer) return;
+
+    const containerWidth = 480; // Width of text container
+    const baseFont = 16; // Base font size in pixels
+    const minFont = 12; // Minimum font size
+
+    // More accurate calculation: assume average character width is about 0.5 of font size
+    // This allows for larger text that better fills the space
+    const charWidthRatio = 0.5;
+
+    // Calculate optimal font size to fill the container width
+    let fontSize = containerWidth / (text.length * charWidthRatio);
+
+    // Cap it at the base font size and ensure it's not smaller than minimum
+    fontSize = Math.min(Math.max(fontSize, minFont), baseFont);
+
+    this.textContainer.nativeElement.style.fontSize = `${fontSize}px`;
   }
 }

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "playervis-client": {
+    "video-poker": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
